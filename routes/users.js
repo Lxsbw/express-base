@@ -9,4 +9,6 @@ router.get('/', function (req, res, next) {
 
 router.get('/info', Users.info);
 
+router.post('/adduser', Users.adduser);
+
 module.exports = router;
