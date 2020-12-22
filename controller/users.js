@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-21 21:15:56
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2020-12-21 22:08:29
+ * @Last Modified time: 2020-12-22 15:43:21
  */
 
 const UserModel = require('../models/users');
@@ -15,7 +15,7 @@ class users {
   /**
    * 测试方法
    * @route GET /api/users/info
-   * @group user - Operations about user
+   * @group User - Operations about user
    * @returns {object} 200 - An array of user info
    * @returns {Error}  default - Unexpected error
    */
@@ -30,7 +30,7 @@ class users {
   /**
    * 测试方法
    * @route POST /api/users/adduser
-   * @group user - Operations about user
+   * @group User - Operations about user
    * @param {PointLx.model} point.body.required - the new point
    * @returns {object} 200 - An array of user info
    * @returns {Error}  default - Unexpected error
@@ -48,16 +48,10 @@ class users {
       user_level: '10',
       create_time: new Date()
     };
-    await UserModel.create(userinfo);
 
-    const result = {
-      user_id: userinfo.user_id,
-      user_name: userinfo.user_name,
-      user_password: userinfo.user_password,
-      user_level: userinfo.user_level,
-      create_time: userinfo.create_time
-    };
+    const result = await UserModel.create(userinfo);
 
+    console.log(result);
     res.json(result);
   }
 }

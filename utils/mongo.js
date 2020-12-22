@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const mongodbConfig = require('../config/config.default.js').mongodb; //获取mongo配置
+const mongodbConfig = require('../config/config.default').mongodb; //获取mongo配置
 
 console.log(mongodbConfig);
 /**
  * 使用 Node 自带 Promise 代替 mongoose 的 Promise,否则会报错
  */
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 /**
  * 配置 MongoDb options
@@ -14,8 +14,9 @@ function getMongodbConfig() {
   let options = {
     useNewUrlParser: true,
     poolSize: 5, // 连接池中维护的连接数
-    reconnectTries: Number.MAX_VALUE,
-    keepAlive: 120
+    // reconnectTries: Number.MAX_VALUE,
+    keepAlive: 120,
+    useUnifiedTopology: true
   };
   return options;
 }
@@ -36,14 +37,14 @@ function getMongoUrl() {
 /**
  * 创建 Mongo 连接，内部维护了一个连接池，全局共享
  */
-console.log(new Date().getTime());
+// console.log(new Date().getTime());
 let mongoClient = mongoose.createConnection(getMongoUrl(), getMongodbConfig());
 
 /**
  * Mongo 连接成功回调
  */
 mongoClient.on('connected', function () {
-  console.log(new Date().getTime());
+  // console.log(new Date().getTime());
   console.log('Mongoose连接至 ：' + getMongoUrl());
 });
 
