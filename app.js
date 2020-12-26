@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// api swagger 配置
 const expressSwagger = require('express-swagger-generator')(app);
 let options = {
   swaggerDefinition: {
@@ -31,7 +32,7 @@ let options = {
     }
   },
   route: {
-    url: '/swagger',
+    url: '/api-docs/swagger',
     docs: '/swagger.json' //swagger文件 api
   },
   basedir: __dirname, //app absolute path
