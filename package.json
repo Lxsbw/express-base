@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www --name=mvcdemo",
-    "stop": "pm2 stop mvcdemo && pm2 delete mvcdemo"
+    "stop": "pm2 stop mvcdemo && pm2 delete mvcdemo",
+    "del": "rm -rf node_modules && rm -rf yarn.lock"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

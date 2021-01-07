@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:09:21
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2020-12-22 15:35:03
+ * @Last Modified time: 2020-12-26 10:28:59
  */
 
 let { Schema } = require('mongoose');
@@ -28,7 +28,7 @@ const mobilePhoneSchema = new Schema(
 
 console.log('实体类mobilePhone', new Date().getTime());
 let mobilePhone = mongoClient.model(
-  `mobilePhone`,
+  'mobilePhone',
   mobilePhoneSchema,
   'mobile-phone'
 );

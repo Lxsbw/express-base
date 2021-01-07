@@ -12,11 +12,12 @@ console.log(mongodbConfig);
  */
 function getMongodbConfig() {
   let options = {
-    useNewUrlParser: true,
+    useCreateIndex: true,
     poolSize: 5, // 连接池中维护的连接数
-    // reconnectTries: Number.MAX_VALUE,
-    keepAlive: 120,
+    useNewUrlParser: true,
+    autoIndex: false,
     useUnifiedTopology: true
+    // keepAlive: 120,
   };
   return options;
 }
