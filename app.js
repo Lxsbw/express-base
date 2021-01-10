@@ -1,6 +1,6 @@
-var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -14,9 +14,18 @@ const expressSwagger = require('express-swagger-generator')(app);
 let options = {
   swaggerDefinition: {
     info: {
-      description: 'This is a sample server',
-      title: 'Swagger',
-      version: '1.0.0'
+      description:
+        'This is a sample server Koa2 server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.',
+      title: 'Express Swagger',
+      version: '1.0.0',
+      contact: {
+        email: 'lxsbw@outlook.com'
+      },
+      // 开源协议
+      license: {
+        name: 'Apache 2.0',
+        url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+      }
     },
     // host: 'localhost:3000',
     basePath: '/',

@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2020-12-26 16:54:01
+ * @Last Modified time: 2021-01-10 16:50:12
  */
 
 const BaseService = require('../utils/base-service');
@@ -34,7 +34,7 @@ class MobilePhoneService extends BaseService {
   /**
    * 查找
    */
-  async find(param) {
+  async findall(param) {
     console.log('service : ' + JSON.stringify(param));
 
     let conditions = {};

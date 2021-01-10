@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const mongodbConfig = require('../config/config.default').mongodb; //获取mongo配置
 
-console.log(mongodbConfig);
 /**
  * 使用 Node 自带 Promise 代替 mongoose 的 Promise,否则会报错
  */
