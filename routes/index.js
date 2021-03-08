@@ -14,4 +14,6 @@ router.post('/api/mobile-phone/create', MobilePhone.create);
 router.put('/api/mobile-phone/update', MobilePhone.update);
 router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 
+router.get('/api/linq', MobilePhone.Linq);
+
 module.exports = router;
