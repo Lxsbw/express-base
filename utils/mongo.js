@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongodbConfig = require('../config/config.default').mongodb; //获取mongo配置
+const { mongodbConfig, env } = require('../config/config.default'); //获取mongo配置
 
 /**
  * 使用 Node 自带 Promise 代替 mongoose 的 Promise,否则会报错
@@ -37,7 +37,7 @@ function getMongoUrl() {
 /**
  * mongoose debug模式，语句跟踪
  */
-mongoose.set('debug', true);
+mongoose.set('debug', env.DEBUG);
 
 /**
  * 创建 Mongo 连接，内部维护了一个连接池，全局共享
