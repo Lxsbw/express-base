@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-02 21:18:22
+ * @Last Modified time: 2021-10-02 22:58:16
  */
 
 const BaseController = require('../utils/base-controller');
@@ -12,6 +12,22 @@ const _ = require('lodash');
 const jslinq = require('jslinq');
 
 class MobilePhoneController extends BaseController {
+  /**
+   * OPTIONS
+   * @route OPTIONS /
+   * @group Home - Public
+   * @summary Method OPTIONS
+   */
+
+  /**
+   * HEAD
+   * @route HEAD /
+   * @group Home - Public
+   * @summary Method HEAD
+   * 生成的请求，要像下面一样带 -I 才能正常，但是目前还没有找到方法让其上
+   * curl -X HEAD "http://localhost:3000/" -H "accept: application/json" -I
+   */
+
   /**
    * id查找
    * @route GET /api/mobile-phone/findone/{_id}
