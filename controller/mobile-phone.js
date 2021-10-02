@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-03-08 23:49:38
+ * @Last Modified time: 2021-10-02 21:18:22
  */
 
 const BaseController = require('../utils/base-controller');
@@ -14,19 +14,17 @@ const jslinq = require('jslinq');
 class MobilePhoneController extends BaseController {
   /**
    * id查找
-   * @route GET /api/mobile-phone/findone
+   * @route GET /api/mobile-phone/findone/{_id}
    * @group MobilePhone - Operations about mobile phone
    * @summary id查找
-   * @param {string} _id.query.required - id
+   * @param {string} _id.path.required - id
    * @returns {object} 200 - mobile phone info
    * @returns {Error} default - Unexpected error
    */
   async findOne(req, res, next) {
-    console.log('controller : ' + JSON.stringify(req.query._id));
+    console.log('controller : ' + JSON.stringify(req.params));
 
-    // console.log('clone : ' + JSON.stringify(_.cloneDeep(req.body)));
-
-    res.json(await MobilePhoneService.findOne({ _id: req.query._id }));
+    res.json(await MobilePhoneService.findOne({ _id: req.params._id }));
   }
 
   /**
@@ -77,6 +75,21 @@ class MobilePhoneController extends BaseController {
    * @returns {Error} default - Unexpected error
    */
   async update(req, res, next) {
+    console.log('controller : ' + JSON.stringify(req.body));
+
+    res.json(await MobilePhoneService.update(req.body));
+  }
+
+  /**
+   * 更新
+   * @route PATCH /api/mobile-phone/patch
+   * @group MobilePhone - Operations about mobile phone
+   * @summary 更新
+   * @param {MobilePhoneUpdPatch.model} MobilePhoneUpdPatch.body.required - 手机信息
+   * @returns {object} 200 - mobile phone
+   * @returns {Error} default - Unexpected error
+   */
+  async updateByPatch(req, res, next) {
     console.log('controller : ' + JSON.stringify(req.body));
 
     res.json(await MobilePhoneService.update(req.body));

@@ -35,6 +35,11 @@ function getMongoUrl() {
 }
 
 /**
+ * mongoose debug模式，语句跟踪
+ */
+mongoose.set('debug', true);
+
+/**
  * 创建 Mongo 连接，内部维护了一个连接池，全局共享
  */
 // console.log(new Date().getTime());

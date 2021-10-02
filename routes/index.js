@@ -8,10 +8,11 @@ router.get('/', function (req, res, next) {
 });
 
 /* 模块 MobilePhone */
-router.get('/api/mobile-phone/findone', MobilePhone.findOne);
+router.get('/api/mobile-phone/findone/:_id', MobilePhone.findOne);
 router.get('/api/mobile-phone/findall', MobilePhone.findall);
 router.post('/api/mobile-phone/create', MobilePhone.create);
 router.put('/api/mobile-phone/update', MobilePhone.update);
+router.patch('/api/mobile-phone/patch', MobilePhone.updateByPatch);
 router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 
 router.get('/api/linq', MobilePhone.Linq);
