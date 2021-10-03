@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { mongodbConfig, env } = require('../config/config.default'); //获取mongo配置
+import mongoose from 'mongoose';
+import { mongodbConfig, env } from '../config/config.default.js';
 
 /**
  * 使用 Node 自带 Promise 代替 mongoose 的 Promise,否则会报错
@@ -73,7 +73,9 @@ function close() {
   mongoClient.close();
 }
 
-module.exports = {
-  mongoClient: mongoClient,
-  close: close
-};
+export { mongoClient, close };
+
+// module.exports = {
+//   mongoClient: mongoClient,
+//   close: close
+// };

@@ -2,12 +2,14 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-02 21:17:04
+ * @Last Modified time: 2021-10-03 15:36:04
  */
 
-const BaseService = require('../utils/base-service');
-const mobilePhoneModel = require('../models/mobile-phone').mobilePhone;
-const mobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
+// const BaseService = require('../utils/base-service');
+import BaseService from '../utils/base-service.js';
+// const mobilePhoneModel = require('../models/mobile-phone').mobilePhone;
+import mobilePhoneModel from '../models/mobile-phone.js';
+// const mobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
 
 class MobilePhoneService extends BaseService {
   /**
@@ -119,4 +121,5 @@ class MobilePhoneService extends BaseService {
   }
 }
 
-module.exports = new MobilePhoneService();
+export default new MobilePhoneService();
+// module.exports = new MobilePhoneService();

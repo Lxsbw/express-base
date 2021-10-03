@@ -1,16 +1,18 @@
-const express = require('express');
-const path = require('path');
-const createError = require('http-errors');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+import express from 'express';
+import path from 'path';
+import createError from 'http-errors';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import expressSwaggerConfig from 'express-swagger-generator';
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+import indexRouter from './routes/index.js';
+import usersRouter from './routes/users.js';
 
 const app = express();
+const __dirname = path.resolve();
 
 // api swagger 配置
-const expressSwagger = require('express-swagger-generator')(app);
+const expressSwagger = expressSwaggerConfig(app);
 const options = {
   swaggerDefinition: {
     info: {
@@ -78,4 +80,5 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;
+// module.exports = app;

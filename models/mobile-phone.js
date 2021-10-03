@@ -2,13 +2,13 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:09:21
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-03 15:08:12
+ * @Last Modified time: 2021-10-03 15:42:46
  */
 
-const { Schema } = require('mongoose');
-const { mongoClient } = require('../utils/mongo');
+import mongoose from 'mongoose';
+import { mongoClient } from '../utils/mongo.js';
 
-const mobilePhoneSchema = new Schema(
+const mobilePhoneSchema = new mongoose.Schema(
   {
     model_name: { type: String },
     size: { type: String },
@@ -40,4 +40,6 @@ class mobilePhoneDoc {
   deleted = false;
 }
 
-module.exports = { mobilePhone, mobilePhoneDoc };
+export default mobilePhone;
+// export { mobilePhone, mobilePhoneDoc };
+// module.exports = { mobilePhone, mobilePhoneDoc };

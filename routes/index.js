@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const MobilePhone = require('../controller/mobile-phone');
+import MobilePhone from '../controller/mobile-phone.js';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -19,4 +19,5 @@ router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 // router.options('/', (req, res, next) => res.sendStatus(200));
 router.get('/api/linq', MobilePhone.Linq);
 
-module.exports = router;
+export default router;
+// module.exports = router;
