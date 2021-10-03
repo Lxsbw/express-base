@@ -2,11 +2,11 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:09:21
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2020-12-26 10:28:59
+ * @Last Modified time: 2021-10-03 15:08:12
  */
 
-let { Schema } = require('mongoose');
-let { mongoClient } = require('../utils/mongo');
+const { Schema } = require('mongoose');
+const { mongoClient } = require('../utils/mongo');
 
 const mobilePhoneSchema = new Schema(
   {
@@ -27,11 +27,7 @@ const mobilePhoneSchema = new Schema(
 );
 
 console.log('实体类mobilePhone', new Date().getTime());
-let mobilePhone = mongoClient.model(
-  'mobilePhone',
-  mobilePhoneSchema,
-  'mobile-phone'
-);
+const mobilePhone = mongoClient.model('mobilePhone', mobilePhoneSchema, 'mobile-phone');
 
 class mobilePhoneDoc {
   _id;
