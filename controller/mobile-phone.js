@@ -2,13 +2,11 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-03 15:42:34
+ * @Last Modified time: 2021-10-03 15:50:41
  */
 
 import BaseController from '../utils/base-controller.js';
-// const MobilePhoneService = require('../service/mobile-phone');
 import MobilePhoneService from '../service/mobile-phone.js';
-// const MobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
 import _ from 'lodash';
 import jslinq from 'jslinq';
 
