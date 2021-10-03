@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-02 22:58:16
+ * @Last Modified time: 2021-10-03 15:16:16
  */
 
 const BaseController = require('../utils/base-controller');
@@ -52,6 +52,18 @@ class MobilePhoneController extends BaseController {
    * @param {string} model_name.query - model_name
    * @returns {object} 200 - mobile phone info
    * @returns {Error} default - Unexpected error
+   */
+  /**
+   * 查找 OPTIONS
+   * @route OPTIONS /api/mobile-phone/findall
+   * @group MobilePhone - Operations about mobile phone
+   * @summary 查找 Method OPTIONS
+   */
+  /**
+   * 查找 HEAD
+   * @route HEAD /api/mobile-phone/findall
+   * @group MobilePhone - Operations about mobile phone
+   * @summary 查找 Method HEAD
    */
   async findall(req, res, next) {
     // console.log('controller : ' + req.query._id + '|' + req.query.model_name);
