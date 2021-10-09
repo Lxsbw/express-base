@@ -5,9 +5,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node ./bin/www.js",
-    "dev": "./node_modules/.bin/nodemon bin/www.js",
-    "prd": "pm2 start bin/www.js --name=express-base",
+    "setES" : "NODE_OPTIONS=--experimental-specifier-resolution=node",
+    "start": "npm run setES node /bin/www.js",
+    "dev": "npm run setES ./node_modules/.bin/nodemon bin/www.js",
+    "prdold": "pm2 start bin/www.js --name=express-base",
+    "prd": "pm2 start 'npm run setES node bin/www.js' --name=express-base",
     "stop": "pm2 stop express-base && pm2 delete express-base",
     "del": "rm -rf node_modules && rm -rf yarn.lock"
   },

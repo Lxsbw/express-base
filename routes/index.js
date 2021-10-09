@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import MobilePhone from '../controller/mobile-phone.js';
+import MobilePhone from '../controller/mobile-phone';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

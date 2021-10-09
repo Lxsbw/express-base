@@ -5,8 +5,8 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import expressSwaggerConfig from 'express-swagger-generator';
 
-import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
+import indexRouter from './routes/index';
+import usersRouter from './routes/users';
 
 const app = express();
 const __dirname = path.resolve();

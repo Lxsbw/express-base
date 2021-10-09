@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { mongodbConfig, env } from '../config/config.default.js';
+import { mongodbConfig, env } from '../config/config.default';
 
 /**
  * 使用 Node 自带 Promise 代替 mongoose 的 Promise,否则会报错
