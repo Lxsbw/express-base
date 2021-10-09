@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "setES" : "NODE_OPTIONS=--experimental-specifier-resolution=node",
-    "start": "npm run setES node /bin/www.js",
+    "start": "npm run setES node ./bin/www.js",
     "dev": "npm run setES ./node_modules/.bin/nodemon bin/www.js",
     "prdold": "pm2 start bin/www.js --name=express-base",
     "prd": "pm2 start 'npm run setES node bin/www.js' --name=express-base",
