@@ -74,8 +74,3 @@ function close() {
 }
 
 export { mongoClient, close };
-
-// module.exports = {
-//   mongoClient: mongoClient,
-//   close: close
-// };

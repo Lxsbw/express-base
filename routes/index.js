@@ -15,9 +15,6 @@ router.put('/api/mobile-phone/update', MobilePhone.update);
 router.patch('/api/mobile-phone/patch', MobilePhone.updateByPatch);
 router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 
-// router.head('/', (req, res, next) => res.sendStatus(200));
-// router.options('/', (req, res, next) => res.sendStatus(200));
 router.get('/api/linq', MobilePhone.Linq);
 
 export default router;
-// module.exports = router;

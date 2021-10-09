@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-09 16:48:06
+ * @Last Modified time: 2021-10-09 16:55:23
  */
 
 import BaseService from '../utils/base-service';
@@ -119,4 +119,3 @@ class MobilePhoneService extends BaseService {
 }
 
 export default new MobilePhoneService();
-// module.exports = new MobilePhoneService();

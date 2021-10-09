@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-21 21:05:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-03 15:32:56
+ * @Last Modified time: 2021-10-09 16:54:27
  */
 
 const mongodbConfig = {
@@ -18,5 +18,4 @@ const env = {
   ENV: ''
 };
 
-// module.exports = {};
 export { mongodbConfig, env };

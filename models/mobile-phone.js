@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:09:21
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-09 16:47:57
+ * @Last Modified time: 2021-10-09 16:54:47
  */
 
 import mongoose from 'mongoose';
@@ -41,4 +41,3 @@ class mobilePhoneDoc {
 }
 
 export { mobilePhone, mobilePhoneDoc };
-// module.exports = { mobilePhone, mobilePhoneDoc };

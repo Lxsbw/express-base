@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-09 16:47:51
+ * @Last Modified time: 2021-10-09 16:54:40
  */
 
 import BaseController from '../utils/base-controller';
@@ -175,4 +175,3 @@ class MobilePhoneController extends BaseController {
 }
 
 export default new MobilePhoneController();
-// module.exports = new MobilePhoneController();
