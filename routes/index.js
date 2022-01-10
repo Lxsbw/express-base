@@ -16,6 +16,7 @@ router.patch('/api/mobile-phone/patch', MobilePhone.updateByPatch);
 router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 
 router.get('/api/linq', MobilePhone.Linq);
+router.get('/api/linqtojs', MobilePhone.LinqToJs);
 // router.head('/', (req, res, next) => res.sendStatus(200));
 // router.options('/', (req, res, next) => res.sendStatus(200));
 

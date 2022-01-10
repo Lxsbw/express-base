@@ -2,13 +2,14 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2022-01-10 03:03:27
+ * @Last Modified time: 2022-01-10 09:06:07
  */
 
 const BaseController = require('../utils/base-controller');
 const MobilePhoneService = require('../service/mobile-phone');
 // const MobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
 const jslinq = require('jslinq');
+const Linq = require('linq-to-javascript');
 
 class MobilePhoneController extends BaseController {
   /**
@@ -133,6 +134,35 @@ class MobilePhoneController extends BaseController {
     console.log('controller : ' + JSON.stringify(req.body));
 
     res.json(await MobilePhoneService.delete(req.body));
+  }
+
+  /**
+   * linq-to-javascript
+   * @route GET /api/linqtojs
+   * @group Home - linq demo
+   * @summary linq-to-javascript
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async LinqToJs(req, res, next) {
+    const persons = [
+      { ID: 0, Age: 30, Name: 'A' },
+      { ID: 1, Age: 25, Name: 'B' },
+      { ID: 2, Age: 2, Name: 'G' },
+      { ID: 2, Age: 18, Name: 'C' },
+      { ID: 1, Age: 30, Name: 'D' },
+      { ID: 1, Age: 25, Name: 'E' },
+      { ID: 2, Age: 15, Name: 'F' }
+    ];
+
+    const result = new Linq(persons)
+      .OrderByDescending(x => x.ID)
+      .ThenBy(x => x.Age)
+      .ThenByDescending(x => x.Name)
+      .ToArray();
+
+    // const rst = new LinqJS().CountByHa(persons);
+    res.json(result);
   }
 
   /**
