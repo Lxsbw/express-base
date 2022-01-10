@@ -15,6 +15,4 @@ router.put('/api/mobile-phone/update', MobilePhone.update);
 router.patch('/api/mobile-phone/patch', MobilePhone.updateByPatch);
 router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 
-router.get('/api/linq', MobilePhone.Linq);
-
 export default router;
