@@ -17,6 +17,5 @@ router.delete('/api/mobile-phone/delete', MobilePhone.delete);
 
 // router.head('/', (req, res, next) => res.sendStatus(200));
 // router.options('/', (req, res, next) => res.sendStatus(200));
-router.get('/api/linq', MobilePhone.Linq);
 
 module.exports = router;

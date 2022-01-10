@@ -2,14 +2,12 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-03 15:16:16
+ * @Last Modified time: 2022-01-10 02:57:05
  */
 
 const BaseController = require('../utils/base-controller');
 const MobilePhoneService = require('../service/mobile-phone');
 // const MobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
-const _ = require('lodash');
-const jslinq = require('jslinq');
 
 class MobilePhoneController extends BaseController {
   /**
@@ -88,8 +86,6 @@ class MobilePhoneController extends BaseController {
   async create(req, res, next) {
     console.log('controller : ' + JSON.stringify(req.body));
 
-    // console.log('clone : ' + JSON.stringify(_.cloneDeep(req.body)));
-
     res.json(await MobilePhoneService.create(req.body));
   }
 
@@ -136,42 +132,6 @@ class MobilePhoneController extends BaseController {
     console.log('controller : ' + JSON.stringify(req.body));
 
     res.json(await MobilePhoneService.delete(req.body));
-  }
-
-  /**
-   * js linq
-   * @route GET /api/linq
-   * @group Home - js linq demo
-   * @summary jslinq
-   * @returns {object} 200 - result info
-   * @returns {Error} default - Unexpected error
-   */
-  async Linq(req, res, next) {
-    const data = [
-      {
-        id: 1,
-        name: 'one',
-        category: 'fruits',
-        countries: ['Italy', 'Austria']
-      },
-      {
-        id: 2,
-        name: 'two',
-        category: 'vegetables',
-        countries: ['Italy', 'Germany']
-      },
-      { id: 3, name: 'three', category: 'vegetables', countries: ['Germany'] },
-      { id: 4, name: 'four', category: 'fruits', countries: ['Japan'] },
-      { id: 5, name: 'five', category: 'fruits', countries: ['Japan', 'Italy'] }
-    ];
-
-    const queryObj = jslinq(data);
-
-    const result = queryObj.singleOrDefault(function (el) {
-      return el.name == 'one';
-    });
-
-    res.json(result);
   }
 }
 
