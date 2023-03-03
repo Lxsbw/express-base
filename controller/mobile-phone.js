@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2022-01-10 09:06:07
+ * @Last Modified time: 2023-03-03 10:17:00
  */
 
 const BaseController = require('../utils/base-controller');
@@ -10,6 +10,7 @@ const MobilePhoneService = require('../service/mobile-phone');
 // const MobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
 const jslinq = require('jslinq');
 const Linq = require('linq-to-javascript');
+// const Linq = require('../../linqjs/src/linq');
 
 class MobilePhoneController extends BaseController {
   /**
@@ -162,6 +163,7 @@ class MobilePhoneController extends BaseController {
       .ToArray();
 
     // const rst = new LinqJS().CountByHa(persons);
+    console.log(result);
     res.json(result);
   }
 
