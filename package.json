@@ -11,7 +11,7 @@
     "prdold": "pm2 start bin/www.js --name=express-base",
     "prd": "pm2 start 'npm run setES node bin/www.js' --name=express-base",
     "stop": "pm2 stop express-base && pm2 delete express-base",
-    "del": "rm -rf node_modules && rm -rf yarn.lock"
+    "del": "rimraf node_modules dist yarn.lock"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -21,7 +21,10 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mongoose": "~5.11.8",
-    "morgan": "~1.9.1",
-    "nodemon": "~2.0.6"
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "~2.0.6",
+    "rimraf": "~4.2.0"
   }
 }
