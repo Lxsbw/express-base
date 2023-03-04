@@ -2,7 +2,7 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2023-03-03 10:17:00
+ * @Last Modified time: 2023-03-04 14:08:03
  */
 
 const BaseController = require('../utils/base-controller');
@@ -157,10 +157,10 @@ class MobilePhoneController extends BaseController {
     ];
 
     const result = new Linq(persons)
-      .OrderByDescending(x => x.ID)
-      .ThenBy(x => x.Age)
-      .ThenByDescending(x => x.Name)
-      .ToArray();
+      .orderByDescending(x => x.ID)
+      .thenBy(x => x.Age)
+      .thenByDescending(x => x.Name)
+      .toArray();
 
     // const rst = new LinqJS().CountByHa(persons);
     console.log(result);
