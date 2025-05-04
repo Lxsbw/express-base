@@ -11,11 +11,11 @@ import { mongodbConfig, env } from '../config/config.default.js';
  */
 function getMongodbConfig() {
   let options = {
-    useCreateIndex: true,
-    poolSize: 5, // 连接池中维护的连接数
-    useNewUrlParser: true,
+    // useCreateIndex: true,
+    maxPoolSize: 5, // 连接池中维护的连接数
+    // useNewUrlParser: true,
     autoIndex: false,
-    useUnifiedTopology: true
+    // useUnifiedTopology: true
     // keepAlive: 120,
   };
   return options;
