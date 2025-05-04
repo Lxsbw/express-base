@@ -2,14 +2,15 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2023-03-04 14:08:03
+ * @Last Modified time: 2025-05-05 00:14:15
  */
 
 const BaseController = require('../utils/base-controller');
 const MobilePhoneService = require('../service/mobile-phone');
-// const MobilePhoneDoc = require('../models/mobile-phone').mobilePhoneDoc;
 const jslinq = require('jslinq');
 const Linq = require('linq-to-javascript');
+const { TLinq = Linq } = require('linq-to-ts');
+const { List } = require('linqts');
 // const Linq = require('../../linqjs/src/linq');
 
 class MobilePhoneController extends BaseController {
@@ -72,7 +73,7 @@ class MobilePhoneController extends BaseController {
     res.json(
       await MobilePhoneService.findall({
         _id: req.query._id,
-        model_name: req.query.model_name
+        model_name: req.query.model_name,
       })
     );
   }
@@ -153,7 +154,7 @@ class MobilePhoneController extends BaseController {
       { ID: 2, Age: 18, Name: 'C' },
       { ID: 1, Age: 30, Name: 'D' },
       { ID: 1, Age: 25, Name: 'E' },
-      { ID: 2, Age: 15, Name: 'F' }
+      { ID: 2, Age: 15, Name: 'F' },
     ];
 
     const result = new Linq(persons)
@@ -163,6 +164,61 @@ class MobilePhoneController extends BaseController {
       .toArray();
 
     // const rst = new LinqJS().CountByHa(persons);
+    console.log(result);
+    res.json(result);
+  }
+
+  /**
+   * linq-to-ts
+   * @route GET /api/linqtots
+   * @group Home - linq demo
+   * @summary linq-to-ts
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async LinqToTs(req, res, next) {
+    const persons = [
+      { ID: 0, Age: 30, Name: 'A' },
+      { ID: 1, Age: 25, Name: 'B' },
+      { ID: 2, Age: 2, Name: 'G' },
+      { ID: 2, Age: 18, Name: 'C' },
+      { ID: 1, Age: 30, Name: 'D' },
+      { ID: 1, Age: 25, Name: 'E' },
+      { ID: 2, Age: 15, Name: 'F' },
+    ];
+
+    const result = new TLinq(persons)
+      .orderByDescending(x => x.ID)
+      .thenBy(x => x.Age)
+      .thenByDescending(x => x.Name)
+      .select(x => x.Name)
+      .toArray();
+
+    console.log(result);
+    res.json(result);
+  }
+
+  /**
+   * linqts
+   * @route GET /api/linqts
+   * @group Home - linq demo
+   * @summary linq-ts
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async LinqToList(req, res, next) {
+    const persons = [
+      { ID: 0, Age: 30, Name: 'A' },
+      { ID: 1, Age: 25, Name: 'B' },
+      { ID: 2, Age: 2, Name: 'G' },
+      { ID: 2, Age: 18, Name: 'C' },
+      { ID: 1, Age: 30, Name: 'D' },
+      { ID: 1, Age: 25, Name: 'E' },
+      { ID: 2, Age: 15, Name: 'F' },
+    ];
+
+    const result = new List(persons).Select(x => x.Name).ToArray();
+
     console.log(result);
     res.json(result);
   }
@@ -181,7 +237,7 @@ class MobilePhoneController extends BaseController {
       { id: 2, name: 'two', category: 'vegetables', countries: ['Italy', 'Germany'] },
       { id: 3, name: 'three', category: 'vegetables', countries: ['Germany'] },
       { id: 4, name: 'four', category: 'fruits', countries: ['Japan'] },
-      { id: 5, name: 'five', category: 'fruits', countries: ['Japan', 'Italy'] }
+      { id: 5, name: 'five', category: 'fruits', countries: ['Japan', 'Italy'] },
     ];
 
     const queryObj = jslinq(data);
