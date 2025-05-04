@@ -20,6 +20,10 @@
     "express-swagger-generator": "~1.1.17",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jslinq": "^1.0.22",
+    "linq-to-javascript": "~2.3.0",
+    "linq-to-ts": "~1.6.0",
+    "linqts": "~2.0.0",
     "mongoose": "~7.0.0",
     "morgan": "~1.9.1"
   },

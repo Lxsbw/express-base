@@ -2,11 +2,16 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2025-05-04 22:14:37
+ * @Last Modified time: 2025-05-04 23:52:50
  */
 
 import BaseController from '../utils/base-controller.js';
 import MobilePhoneService from '../service/mobile-phone.js';
+import jslinq from 'jslinq';
+import Linq from 'linq-to-javascript';
+import { Linq as TLinq } from 'linq-to-ts';
+import { List } from 'linqts';
+// import Linq from '../../linqjs/src/linq';
 
 class MobilePhoneController extends BaseController {
   /**
@@ -68,7 +73,7 @@ class MobilePhoneController extends BaseController {
     res.json(
       await MobilePhoneService.findall({
         _id: req.query._id,
-        model_name: req.query.model_name
+        model_name: req.query.model_name,
       })
     );
   }
@@ -131,6 +136,120 @@ class MobilePhoneController extends BaseController {
     console.log('controller : ' + JSON.stringify(req.body));
 
     res.json(await MobilePhoneService.delete(req.body));
+  }
+
+  /**
+   * linq-to-javascript
+   * @route GET /api/linqtojs
+   * @group Home - linq demo
+   * @summary linq-to-javascript
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async LinqToJs(req, res, next) {
+    const persons = [
+      { ID: 0, Age: 30, Name: 'A' },
+      { ID: 1, Age: 25, Name: 'B' },
+      { ID: 2, Age: 2, Name: 'G' },
+      { ID: 2, Age: 18, Name: 'C' },
+      { ID: 1, Age: 30, Name: 'D' },
+      { ID: 1, Age: 25, Name: 'E' },
+      { ID: 2, Age: 15, Name: 'F' },
+    ];
+
+    const result = new Linq(persons)
+      .orderByDescending(x => x.ID)
+      .thenBy(x => x.Age)
+      .thenByDescending(x => x.Name)
+      .toArray();
+
+    // const rst = new LinqJS().CountByHa(persons);
+    console.log(result);
+    res.json(result);
+  }
+
+  /**
+   * linq-to-ts
+   * @route GET /api/linqtots
+   * @group Home - linq demo
+   * @summary linq-to-ts
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async LinqToTs(req, res, next) {
+    const persons = [
+      { ID: 0, Age: 30, Name: 'A' },
+      { ID: 1, Age: 25, Name: 'B' },
+      { ID: 2, Age: 2, Name: 'G' },
+      { ID: 2, Age: 18, Name: 'C' },
+      { ID: 1, Age: 30, Name: 'D' },
+      { ID: 1, Age: 25, Name: 'E' },
+      { ID: 2, Age: 15, Name: 'F' },
+    ];
+
+    const result = new TLinq(persons)
+      .orderByDescending(x => x.ID)
+      .thenBy(x => x.Age)
+      .thenByDescending(x => x.Name)
+      .select(x => x.Name)
+      .toArray();
+
+    console.log(result);
+    res.json(result);
+  }
+
+
+  /**
+   * linqts
+   * @route GET /api/linqts
+   * @group Home - linq demo
+   * @summary linq-ts
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async LinqToList(req, res, next) {
+    const persons = [
+      { ID: 0, Age: 30, Name: 'A' },
+      { ID: 1, Age: 25, Name: 'B' },
+      { ID: 2, Age: 2, Name: 'G' },
+      { ID: 2, Age: 18, Name: 'C' },
+      { ID: 1, Age: 30, Name: 'D' },
+      { ID: 1, Age: 25, Name: 'E' },
+      { ID: 2, Age: 15, Name: 'F' },
+    ];
+
+    const result = new List(persons)
+      .Select(x => x.Name)
+      .ToArray();
+
+    console.log(result);
+    res.json(result);
+  }
+
+  /**
+   * js linq
+   * @route GET /api/linq
+   * @group Home - js linq demo
+   * @summary jslinq
+   * @returns {object} 200 - result info
+   * @returns {Error} default - Unexpected error
+   */
+  async Linq(req, res, next) {
+    const data = [
+      { id: 1, name: 'one', category: 'fruits', countries: ['Italy', 'Austria'] },
+      { id: 2, name: 'two', category: 'vegetables', countries: ['Italy', 'Germany'] },
+      { id: 3, name: 'three', category: 'vegetables', countries: ['Germany'] },
+      { id: 4, name: 'four', category: 'fruits', countries: ['Japan'] },
+      { id: 5, name: 'five', category: 'fruits', countries: ['Japan', 'Italy'] },
+    ];
+
+    const queryObj = jslinq(data);
+
+    const result = queryObj.singleOrDefault(function (el) {
+      return el.name == 'one';
+    });
+
+    res.json(result);
   }
 }
 
