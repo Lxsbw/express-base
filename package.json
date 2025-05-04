@@ -5,11 +5,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "setES" : "NODE_OPTIONS=--experimental-specifier-resolution=node",
+    "setES": "NODE_OPTIONS=--experimental-specifier-resolution=node",
     "start": "node ./bin/www.js",
     "dev": "./node_modules/.bin/nodemon bin/www.js",
-    "prdold": "pm2 start bin/www.js --name=express-base",
-    "prd": "pm2 start 'node bin/www.js' --name=express-base",
+    "prd": "pm2 start bin/www.js --name=express-base",
     "stop": "pm2 stop express-base && pm2 delete express-base",
     "del": "rimraf node_modules dist yarn.lock"
   },
