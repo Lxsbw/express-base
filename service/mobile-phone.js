@@ -2,11 +2,11 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:00:52
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-09 16:55:23
+ * @Last Modified time: 2025-05-04 22:14:10
  */
 
-import BaseService from '../utils/base-service';
-import { mobilePhone as mobilePhoneModel } from '../models/mobile-phone';
+import BaseService from '../utils/base-service.js';
+import { mobilePhone as mobilePhoneModel } from '../models/mobile-phone.js';
 
 class MobilePhoneService extends BaseService {
   /**

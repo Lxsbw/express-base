@@ -2,11 +2,11 @@
  * @Author: zhixiong.fu
  * @Date: 2020-12-22 12:09:21
  * @Last Modified by: zhixiong.fu
- * @Last Modified time: 2021-10-09 16:54:47
+ * @Last Modified time: 2025-05-04 22:14:31
  */
 
 import mongoose from 'mongoose';
-import { mongoClient } from '../utils/mongo';
+import { mongoClient } from '../utils/mongo.js';
 
 const mobilePhoneSchema = new mongoose.Schema(
   {
